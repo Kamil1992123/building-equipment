@@ -21,14 +21,9 @@ public class Customer {
     private int id;
     private String name;
     private String surname;
-    private long pesel;
-    private int documentNumber;
+    private String pesel;
+    private String documentNumber;
 
     @ManyToMany(mappedBy = "customers")
     private List<Device> rentDevices = new ArrayList<>();
-
-
-
-
-
 }

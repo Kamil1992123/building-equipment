@@ -22,9 +22,4 @@ public class Category {
     private String description;
     @OneToMany(mappedBy = "category")
     private Set<Device> deviceSet = new HashSet<>();
-
-
-
-
-
 }

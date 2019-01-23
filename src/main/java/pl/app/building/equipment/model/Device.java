@@ -23,10 +23,10 @@ public class Device {
     private int amount;
     private double price;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "category_id")
     private Category category;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "device_customers",
             joinColumns = {@JoinColumn(name = "device_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "customer_id", referencedColumnName = "id")}
@@ -34,7 +34,9 @@ public class Device {
     private List<Customer> customers = new ArrayList<>();
 
 
-
-
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
+        customer.getRentDevices().add(this);
+    }
 
 }
