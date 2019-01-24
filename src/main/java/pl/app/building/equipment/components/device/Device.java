@@ -1,17 +1,20 @@
-package pl.app.building.equipment.model;
+package pl.app.building.equipment.components.device;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import pl.app.building.equipment.components.category.Category;
+import pl.app.building.equipment.components.customer.Customer;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "device")
+@NoArgsConstructor
 public class Device {
 
 
@@ -21,7 +24,7 @@ public class Device {
     private String name;
     private String description;
     private int amount;
-    private double price;
+    private int price;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "category_id")
